@@ -3,16 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_margin="1dp"
+    android:background="#B9CFDE">
 
     <ImageView
         android:id="@+id/ivProfileImage"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_alignParentStart="true"
+        android:layout_alignParentStart="false"
         android:layout_alignParentTop="true"
         android:layout_marginStart="0dp"
-        android:layout_marginTop="0dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="3dp"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
@@ -22,6 +25,8 @@
         android:layout_alignParentTop="true"
         android:layout_marginStart="5dp"
         android:layout_toEndOf="@+id/ivProfileImage"
+        android:textColor="#053242"
+        android:textStyle="bold"
         tools:text="youncher" />
 
     <TextView
@@ -32,5 +37,22 @@
         android:layout_marginStart="5dp"
         android:layout_marginTop="2dp"
         android:layout_toEndOf="@+id/ivProfileImage"
+        android:textColor="#053242"
         tools:text="This is my tweet!" />
+
+    <TextView
+        android:id="@+id/tvTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvScreenName"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="243dp"
+        android:layout_marginEnd="5dp"
+        android:layout_toEndOf="@+id/ivProfileImage"
+        android:gravity="right"
+        android:textColor="#053242"
+        tools:text="5m" />
+
 </RelativeLayout>
