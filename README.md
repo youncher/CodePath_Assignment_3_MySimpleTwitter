@@ -34,7 +34,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='todo.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='App_Demo.gif' title='Video Walkthrough' width='250' alt='Video Walkthrough' />
 
 ## Open-source libraries used
 
