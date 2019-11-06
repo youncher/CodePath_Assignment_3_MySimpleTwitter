@@ -37,10 +37,11 @@ android {
 }
 
 dependencies {
+    implementation "androidx.appcompat:appcompat:${appCompatVersion}"
     implementation fileTree(dir: 'libs', include: '*.jar')
     implementation 'com.codepath.libraries:android-oauth-handler:2.2.0'
     implementation 'commons-codec:commons-codec:1.10'
-    implementation 'androidx.appcompat:appcompat:1.0.2'
+
     // Glide for remote image loading
     implementation 'com.github.bumptech.glide:glide:4.10.0-SNAPSHOT'
     // Room for simple persistence with an ORM
@@ -51,4 +52,10 @@ dependencies {
     implementation 'com.facebook.stetho:stetho:1.5.1'
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.0.0'
+
+    implementation "com.google.android.material:material:${designSupportVersion}"
+
+    // For parceler
+    implementation 'org.parceler:parceler-api:1.1.12'
+    annotationProcessor 'org.parceler:parceler:1.1.12'
 }

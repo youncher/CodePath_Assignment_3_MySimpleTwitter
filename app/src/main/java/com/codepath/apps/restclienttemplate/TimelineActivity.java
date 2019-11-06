@@ -17,6 +17,7 @@ import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.parceler.Parcels;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +26,7 @@ import okhttp3.Headers;
 
 public class TimelineActivity extends AppCompatActivity {
 
+    private final int REQUEST_CODE = 50;
     public static final String TAG = "TimelineActivity";
     TwitterClient client;
     RecyclerView rvTweets;
@@ -79,12 +81,32 @@ public class TimelineActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.compose) {
             // Compose icon has been tapped
-            Intent intent = new Intent(this, ComposeActivity.class); // Parameters: where we're coming from, where we're going to
-            startActivity(intent);
             // Navigate to the compose activity
+            Intent intent = new Intent(this, ComposeActivity.class); // Parameters: where we're coming from, where we're going to
+            startActivityForResult(intent, REQUEST_CODE);
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    // Handles the result of the child activity
+    // requestCode should match RESULT_OK
+    // resultCode is specified by Android to say if the child activity finished successfully
+    // data is the data the child activity passes back to this parent
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        // REQUEST_CODE is the constant defined above in this activity
+        if (resultCode == RESULT_OK && requestCode == REQUEST_CODE) {
+            // Extract tweet from data
+            Tweet tweet = Parcels.unwrap(data.getParcelableExtra("tweet"));
+            // Update recycler view with the tweet
+            // Modify data source of tweets
+            tweets.add(0, tweet);
+            // Update the adapter
+            adapter.notifyItemInserted(0);
+            rvTweets.smoothScrollToPosition(0);
+        }
+        super.onActivityResult(requestCode, resultCode, data);
     }
 
     private void populateHomeTimeline() {

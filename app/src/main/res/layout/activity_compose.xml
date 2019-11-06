@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<!--<RelativeLayout-->
+<com.google.android.material.textfield.TextInputLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    app:counterEnabled="true"
+    app:counterMaxLength="140"
+    app:counterTextAppearance="@style/counterText"
+    app:counterOverflowTextAppearance="@style/counterOverride"
     tools:context=".ComposeActivity">
 
     <EditText
@@ -29,4 +34,6 @@
         android:layout_marginTop="5dp"
         android:layout_marginEnd="5dp"
         android:text="@string/tweet" />
-</RelativeLayout>
+
+<!--</RelativeLayout>-->
+</com.google.android.material.textfield.TextInputLayout>
